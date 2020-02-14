@@ -5,10 +5,16 @@ import androidx.core.view.GestureDetectorCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class R1 extends AppCompatActivity {
+
+    //tts
+    private TextToSpeech tts;
 
     TextView R1_textView;
 
@@ -19,6 +25,16 @@ public class R1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_r1);
+
+        //tts 실행.
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                String speech = "이미지인식 페이지 입니다. 기능을 사용하기 위해 두번 터치해주세요";    //문자 작성.
+                tts.setLanguage(Locale.KOREAN);
+                tts.speak(speech, TextToSpeech.QUEUE_FLUSH,null);
+            }
+        });
 
         R1_textView = findViewById(R.id.R1_textView);
 

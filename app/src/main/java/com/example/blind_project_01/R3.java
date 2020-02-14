@@ -5,11 +5,17 @@ import androidx.core.view.GestureDetectorCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class R3 extends AppCompatActivity {
+
+    //tts
+    private TextToSpeech tts;
 
     TextView R3_textView;
 
@@ -21,12 +27,37 @@ public class R3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_r3);
 
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                String speech = "글자인식 페이지 입니다. 기능을 사용하기 위해 두번 터치해주세요";    //문자 작성.
+                tts.setLanguage(Locale.KOREAN);
+                tts.speak(speech, TextToSpeech.QUEUE_FLUSH,null);
+            }
+        });
+
         R3_textView = findViewById(R.id.R3_textView);
 
         DetectSwipeGestureListenerR3 gestureListenerR1 = new DetectSwipeGestureListenerR3();
         gestureListenerR1.setActivity(this);
         gestureDetectorCompat = new GestureDetectorCompat(R3.this, gestureListenerR1);
     }
+
+
+
+
+    //어플리케이션 종료시 TTS 중단.
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // TTS 객체가 남아있다면 실행을 중지하고 메모리에서 제거한다.
+        if(tts != null){
+            tts.stop();
+            tts.shutdown();
+            tts = null;
+        }
+    }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
