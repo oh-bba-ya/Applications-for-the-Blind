@@ -75,6 +75,10 @@ public class U1 extends AppCompatActivity {
             if(message == "Swipe To Up"){
                 Intent intent = new Intent(U1.this, MainActivity.class);
                 startActivity(intent);
+                tts.stop();
+                tts.shutdown();
+                tts = null;
+                finish();
             }
         }
     }

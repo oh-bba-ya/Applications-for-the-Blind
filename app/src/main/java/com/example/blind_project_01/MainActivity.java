@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 tts.stop();
                 tts.shutdown();
                 tts = null;
+                finish();
             }
 
             else if(message == "Swipe To Down"){      //위에서 아래로.
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 tts.stop();
                 tts.shutdown();
                 tts = null;
+                finish();
             }
         }
 

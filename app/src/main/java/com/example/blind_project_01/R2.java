@@ -74,12 +74,24 @@ public class R2 extends AppCompatActivity {
             if (message == "Swipe To Left") {     //오른쪽에서 왼쪽.
                 Intent intent = new Intent(R2.this, R3.class);
                 startActivity(intent);
+                tts.stop();
+                tts.shutdown();
+                tts = null;
+                finish();
             } else if (message == "Swipe To Right") {  //왼쪽에서 오른쪽.
                 Intent intent = new Intent(R2.this, R1.class);
                 startActivity(intent);
+                tts.stop();
+                tts.shutdown();
+                tts = null;
+                finish();
             } else if (message == "Swipe To Down") {          //위에서 아래로.
                 Intent intent = new Intent(R2.this, U1.class);
                 startActivity(intent);
+                tts.stop();
+                tts.shutdown();
+                tts = null;
+                finish();
             }
         }
     }
