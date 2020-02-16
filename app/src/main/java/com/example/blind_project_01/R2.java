@@ -93,6 +93,14 @@ public class R2 extends AppCompatActivity {
                 tts = null;
                 finish();
             }
+            else if (message == "Swipe To Up"){         //아래에서 위로.
+                Intent intent = new Intent(R2.this, MainActivity.class);
+                startActivity(intent);
+                tts.stop();
+                tts.shutdown();
+                tts = null;
+                finish();
+            }
         }
     }
 }

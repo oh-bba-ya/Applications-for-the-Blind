@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 tts.stop();
                 tts.shutdown();
                 tts = null;
+                finish();
             }
 
             else if(message == "Swipe To Right"){       //왼쪽에서 오른쪽.
