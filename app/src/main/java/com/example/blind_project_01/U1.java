@@ -105,6 +105,9 @@ public class U1 extends AppCompatActivity {
             //in there was no error
             //show dialog
             startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
+            tts.stop();
+            tts.shutdown();
+            tts = null;
         } catch (Exception e) {
             //if there was some error
             //get message of error and show
@@ -132,18 +135,21 @@ public class U1 extends AppCompatActivity {
                     String message = result.get(0);
 
                     if (message.contains("바코드")) {
-                        Intent intent = new Intent(U1.this, R1.class);
+                        Intent intent = new Intent(U1.this, R2.class);
                         startActivity(intent);
+                        finish();       //화면전환시 현재 Activity 삭제.
                     }
 
                     else if(message.contains("이미지")){
-                        Intent intent = new Intent(U1.this, R2.class);
+                        Intent intent = new Intent(U1.this, R1.class);
                         startActivity(intent);
+                        finish();       //화면전환시 현재 Activity 삭제.
                     }
 
-                    else if(message.contains("텍스트")){
+                    else if(message.contains("텍스트") || message.contains("글자")){
                         Intent intent = new Intent(U1.this, R3.class);
                         startActivity(intent);
+                        finish();       //화면전환시 현재 Activity 삭제.
                     }
 
                     break;
