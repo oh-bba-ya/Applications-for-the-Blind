@@ -1,17 +1,24 @@
 package com.example.blind_project_01;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class U1 extends AppCompatActivity {
+
+    //STT
+    private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
 
     //TTS
     private TextToSpeech tts;
@@ -37,6 +44,7 @@ public class U1 extends AppCompatActivity {
         });
 
 
+        //Swipe
         U1_textView = findViewById(R.id.U1_textView);
 
         DetectSwipeGestureListenerU1 gestureListenerU1 = new DetectSwipeGestureListenerU1();
@@ -58,6 +66,7 @@ public class U1 extends AppCompatActivity {
     }
 
 
+    //Swipe
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         gestureDetectorCompat.onTouchEvent(event);
@@ -82,5 +91,67 @@ public class U1 extends AppCompatActivity {
             }
         }
     }
+
+    //STT
+    public void speak() {
+        //intent to show speech to text dialog
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.KOREAN);        //언어 설정인가?
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hi speak somthing");
+
+        //start intent
+        try {
+            //in there was no error
+            //show dialog
+            startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
+        } catch (Exception e) {
+            //if there was some error
+            //get message of error and show
+            Toast.makeText(this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    //receive voice input and handle it
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        switch (requestCode) {
+            case REQUEST_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+                    //get text array from voice intent
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    //set to text view
+
+                    //mTextTv.setText(result.get(0));  결과값을 나타낼 필요가 없어 주석처리.
+
+                    String message = result.get(0);
+
+                    if (message.contains("바코드")) {
+                        Intent intent = new Intent(U1.this, R1.class);
+                        startActivity(intent);
+                    }
+
+                    else if(message.contains("이미지")){
+                        Intent intent = new Intent(U1.this, R2.class);
+                        startActivity(intent);
+                    }
+
+                    else if(message.contains("텍스트")){
+                        Intent intent = new Intent(U1.this, R3.class);
+                        startActivity(intent);
+                    }
+
+                    break;
+                }
+            }
+
+        }
+    }
+
 
 }

@@ -73,7 +73,8 @@ public class DetectSwipeGestureListenerU1 extends GestureDetector.SimpleOnGestur
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        this.activity.displayMessage("Double Tap");
+        //this.activity.displayMessage("Double Tap");
+        this.activity.speak();          //private로 하면 오버라이드가 안되기 때문에 public으로 U1.java에 함수 정의함.
         return true;
     }
 }
