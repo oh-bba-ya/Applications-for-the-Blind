@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.blind_project_01"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -37,4 +37,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    //QR, BarCode 인식.( C++ 템플릿 프로젝트라 그런지  com을 -> androidx로 바꿔야 IntentIntegrator 클래스 사용가능.
+    //androidx로 바꾼뒤에 실행해보니 자꾸 빌드 실패라 뜨는데 지우고 다시 원래대로 써줬더니 된다. 이유를 모르겠다.
 }

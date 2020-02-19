@@ -73,7 +73,8 @@ public class DetectSwipeGestureListenerR2 extends GestureDetector.SimpleOnGestur
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        this.activity.displayMessage("Double Tap");
+        this.activity.activityTurning("Double Tap");
+        //this.activity.displayMessage("Double Tap");
         return true;
     }
 

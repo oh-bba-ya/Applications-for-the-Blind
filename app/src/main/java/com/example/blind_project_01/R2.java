@@ -101,6 +101,15 @@ public class R2 extends AppCompatActivity {
                 tts = null;
                 finish();
             }
+
+            else if (message == "Double Tap"){          //더블 탭을 통해 액티비티 전환해서 기능 사용.
+                Intent intent = new Intent(R2.this, ScanBarCode.class);
+                startActivity(intent);
+                tts.stop();
+                tts.shutdown();
+                tts = null;
+
+            }
         }
     }
 }
