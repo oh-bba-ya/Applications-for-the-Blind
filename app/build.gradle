@@ -40,4 +40,12 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     //QR, BarCode 인식.( C++ 템플릿 프로젝트라 그런지  com을 -> androidx로 바꿔야 IntentIntegrator 클래스 사용가능.
     //androidx로 바꾼뒤에 실행해보니 자꾸 빌드 실패라 뜨는데 지우고 다시 원래대로 써줬더니 된다. 이유를 모르겠다.
+
+    // Add the following line to the bottom of the file:
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+
+
 }
+
+// Add the following line to the bottom of the file:
+apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
