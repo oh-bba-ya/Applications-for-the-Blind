@@ -28,12 +28,19 @@ public class ScanBarCode extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        String bar_number = result.getContents();
+        Intent intent = new Intent(ScanBarCode.this, ScanResultActivity.class);
+        intent.putExtra("bar_number", bar_number);
+        startActivity(intent);
+
+
         if(result != null) {
             if(result.getContents() == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 // todo
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+
                 // todo
             }
         } else {
