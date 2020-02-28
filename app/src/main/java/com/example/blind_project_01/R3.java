@@ -85,7 +85,7 @@ public class R3 extends AppCompatActivity {
             public void onClick(View v)
             {
                 detectTextFromImage();
-                
+
             }
         });
 

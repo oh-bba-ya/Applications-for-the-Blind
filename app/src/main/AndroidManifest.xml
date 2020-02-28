@@ -27,6 +27,7 @@
         <activity android:name=".R2" />
         <activity android:name=".R3" />
 
+
         <activity android:name=".R1" />
         <activity android:name=".MainActivity">
 
