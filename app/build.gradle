@@ -43,8 +43,8 @@ dependencies {
     //androidx로 바꾼뒤에 실행해보니 자꾸 빌드 실패라 뜨는데 지우고 다시 원래대로 써줬더니 된다. 이유를 모르겠다.
 
     // Add the following line to the bottom of the file:
+    //implementation 'com.google.firebase:firebase-core:16.0.3'
     implementation 'com.google.firebase:firebase-core:15.0.2'
-
     //google text
     //implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.firebase:firebase-ml-vision:15.0.0'

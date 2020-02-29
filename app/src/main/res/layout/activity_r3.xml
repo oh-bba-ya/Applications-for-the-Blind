@@ -6,55 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".R3">
 
-<!--    제스처인식-->
     <TextView
         android:id="@+id/R3_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        />
+        android:text="R3 Gesture Detector"/>
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        />
-
-<!--    여기에 텍스트 인식결과가 보여진다.-->
-    <TextView
-        android:id="@+id/text_display"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_below="@+id/image_view"
-        android:textSize="26dp"
-        android:maxLines="5"
-        android:layout_margin="10dp"
-        />
-
-    <Button
-        android:id="@+id/capture_image_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Capture Image"
-        android:textAllCaps="false"
-        android:layout_above="@+id/detect_text_image_btn"
-        android:background="@color/colorAccent"
-        android:textColor="@android:color/white"
-        android:textSize="17dp"
-        android:layout_marginBottom="10dp"
-        />
-
-    <Button
-        android:id="@+id/detect_text_image_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Detect Text"
-        android:textAllCaps="false"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"
-        android:textSize="17dp"
-        />
 
 </RelativeLayout>

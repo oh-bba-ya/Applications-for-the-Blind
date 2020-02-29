@@ -147,7 +147,7 @@ public class U1 extends AppCompatActivity {
                     }
 
                     else if(message.contains("텍스트") || message.contains("글자")){
-                        Intent intent = new Intent(U1.this, R3.class);
+                        Intent intent = new Intent(U1.this, R3_function.class);
                         startActivity(intent);
                         finish();       //화면전환시 현재 Activity 삭제.
                     }

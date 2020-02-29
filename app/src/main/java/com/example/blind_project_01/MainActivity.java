@@ -6,7 +6,6 @@ import androidx.core.view.GestureDetectorCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
