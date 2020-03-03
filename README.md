@@ -15,6 +15,14 @@ TTS(Text To Speech):
 바코드 인식을 통한 상품 식별, 음성 안내
 ocr 기능을 통한 상품 식별 및 성분 인식, 음성 안내
 
+![stt](https://user-images.githubusercontent.com/52408669/75778292-dd74fd80-5d9a-11ea-9755-a1a1b303ebe2.jpg)
+
+![barcode_recog](https://user-images.githubusercontent.com/52408669/75778285-dbab3a00-5d9a-11ea-917a-7cf5031df0a1.jpg)
+
+![recog_result](https://user-images.githubusercontent.com/52408669/75778290-dcdc6700-5d9a-11ea-8861-5618935898dd.jpg)
+
+![ocr](https://user-images.githubusercontent.com/52408669/75778289-dcdc6700-5d9a-11ea-8f30-f014defa91ac.jpg)
+
 # D. 어플리케이션 사용 방법 및 각 Activity 소개
 Main Page : 어플리케이션 소개 및 페이지 전환 방법 소개  
 R - 1 : 바코드 인식 기능 페이지  
